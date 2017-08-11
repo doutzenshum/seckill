@@ -56,9 +56,7 @@ public class SeckillServiceImpl implements SeckillService
 
     public Exposer exportSeckillUrl(long seckillId) {
         //优化点:缓存优化:超时的基础上维护一致性
-        //1。访问redi
-
-
+        //1。访问redis
         Seckill seckill = redisDao.getSeckill(seckillId);
         if (seckill == null) {
             //2.访问数据库
@@ -71,8 +69,6 @@ public class SeckillServiceImpl implements SeckillService
             }
 
         }
-
-
         //若是秒杀未开启
         Date startTime=seckill.getStartTime();
         Date endTime=seckill.getEndTime();

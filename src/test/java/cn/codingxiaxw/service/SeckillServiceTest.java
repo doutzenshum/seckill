@@ -58,6 +58,7 @@ public class SeckillServiceTest {
 
             long userPhone=13476191876L;
             String md5=exposer.getMd5();
+            System.out.println(md5);
 
             try {
                 SeckillExecution seckillExecution = seckillService.executeSeckill(seckillId, userPhone, md5);
